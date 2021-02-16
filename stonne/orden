@@ -1,0 +1,2 @@
+ for i in $(seq 10 10 90); do ./stonne -SparseGEMM -M=1 -N=64 -K=32 -num_ms=128 -dn_bw=128  -dataflow=MK_STA_KN_STR -MK_sparsity=$i | grep "Number of"; done
+
