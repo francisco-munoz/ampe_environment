@@ -8,13 +8,13 @@ fi
 if test "$1" == "install"
 then
     echo "The system is ready to be installed"
-    if ! grep -q avx2 /proc/cpuinfo
+    if ! grep -q avx /proc/cpuinfo
     then
-        echo "AVX2 is not supported in this CPU."
+        echo "AVX is not supported in this CPU."
         exit 1
     fi
 
-    echo "AVX2 support: Yes"
+    echo "AVX support: Yes"
 
     echo "Compiling PRACTICA2 User interface"
     g++ -mavx src/main.cpp src/practica2.cpp -o practica2_interface
