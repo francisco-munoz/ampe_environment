@@ -276,6 +276,9 @@ void Stonne::loadTile(unsigned int T_R, unsigned int T_S, unsigned int T_C, unsi
     this->mem->setTile(this->current_tile);
 }
 
+//T_S = T_K in GEMM
+//T_N = T_M in GEMM
+//T_K = T_N in GEMM
 void Stonne::loadFCTile(unsigned int T_S, unsigned int T_N, unsigned int T_K)  {
     //loadTile(1, T_S, 1, T_K, 1, T_N, 1, 1);
     loadTile(1, T_S, 1, T_K, 1, 1, T_N, 1);

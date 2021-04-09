@@ -306,7 +306,7 @@ void simulateDenseGemmForward(std::string layer_name, float* KN_matrix_raw, floa
    //Tile parameters
    int T_K = tile.get_T_S();
    int T_N = tile.get_T_K();
-   int T_M = tile.get_T_N();
+   int T_M = tile.get_T_N(); //Be careful. This can be a bit tricky since the mapping does not correspond exactly
 
 
    for(int n=0; n<N; n++) {

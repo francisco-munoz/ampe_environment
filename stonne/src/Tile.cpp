@@ -43,6 +43,7 @@ Tile::Tile(std::string tile_file) {
     auto T_N=config->get_as<int32_t>("T_N");
     auto T_X_=config->get_as<int32_t>("T_X'");
     auto T_Y_=config->get_as<int32_t>("T_Y'");
+    auto T_M=config->get_as<int32_t>("T_M");
 
     if(!tile_type) {
         std::cout << "Error to parse tile_type. Parameter not found" << std::endl;
@@ -152,6 +153,36 @@ Tile::Tile(std::string tile_file) {
     //Folding is not specified in this case since this use case is not to load the tile into the architecture. Rather, it is to load the tile from the file and layer specify all the parameters
     // to the architecture by means of some abstractions like an instruction.
 
+        else if(*tile_type=="GEMM") {
+
+         if(!T_M) {
+            std::cout << "Error to parse T_M. Value not found." << std::endl;
+            exit(1);
+          }
+
+         if(!T_N) {
+            std::cout << "Error to parse T_N. Value not found." << std::endl;
+            exit(1);
+         }
+
+         if(!T_K) {
+            std::cout << "Error to parse T_K. Value not found." << std::endl;
+            exit(1);
+         }
+
+         //Filling the parameters
+         this->T_R = 1;
+         this->T_S=*T_K;
+         this->T_C=1;
+         this->T_K=*T_N;
+         this->T_G=1;
+         this->T_N=*T_M;
+         this->T_X_=1;
+         this->T_Y_=1;
+
+
+
+    }
 
  
 } //End constructor
