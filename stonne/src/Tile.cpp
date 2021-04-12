@@ -59,8 +59,12 @@ Tile::Tile(std::string tile_file) {
         std::cout << "Reading a tile of type FC" << std::endl;
     }
 
+    else if(*tile_type=="GEMM") {
+        std::cout << "Reading a tile of type GEMM" << std::endl;
+    }
+
     else {
-        std::cout << "Error to parse tile_type. Specify a correct type: [CONV, FC, POOL]" << std::endl;
+        std::cout << "Error to parse tile_type. Specify a correct type: [CONV, FC, POOL, GEMM]" << std::endl;
         exit(1);
     }
 
