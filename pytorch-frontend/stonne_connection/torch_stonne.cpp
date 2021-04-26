@@ -554,8 +554,8 @@ torch::Tensor simulated_linear_forward(std::string layer_name, torch::Tensor inp
       else {
          KN_weight_raw = (float*) weight.data_ptr(); //No tranpose
       }
-      std::cout << "Calling to the simulation with gemm_M=" << gemm_M << " gemm_N=" << gemm_N << std::endl;
-      simulateSparseGemmForward(layer_name, KN_weight_raw, MK_input_raw, output_raw, 1, 1, gemm_M, gemm_K, gemm_N, sparsity_level, stonne_cfg, MK_STR_KN_STA);
+      //We are sending weights where weights should be with the dimnensions are exchanged
+      simulateSparseGemmForward(layer_name, MK_input_raw, KN_weight_raw, output_raw, 1, 1, gemm_N, gemm_K, gemm_M, sparsity_level, stonne_cfg, MK_STR_KN_STA);
     }
 
     else {
@@ -567,8 +567,8 @@ torch::Tensor simulated_linear_forward(std::string layer_name, torch::Tensor inp
             KN_weight_raw = (float*) weight_changed.data_ptr();
         }
         simulateDenseGemmForward(layer_name, KN_weight_raw, MK_input_raw, output_raw,1, 1, gemm_M, gemm_K, gemm_N, path_to_tile, stonne_cfg);
-	std::cout << "The value of M is " << gemm_M << std::endl;
-	std::cout << "The value of N is " << gemm_N << std::endl;
+	std::cout << "The value of M is " << gemm_N << std::endl;
+	std::cout << "The value of N is " << gemm_M << std::endl;
     }
 
     return output;
