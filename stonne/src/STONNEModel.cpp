@@ -12,6 +12,7 @@
 #include "Config.h"
 #include <time.h>
 #include <math.h>
+#include <unistd.h>
 
 Stonne::Stonne(Config stonne_cfg) {
     this->stonne_cfg=stonne_cfg;
@@ -341,6 +342,7 @@ void Stonne::cycle() {
 //General function to print all the STATS
 void Stonne::printStats() {
     std::cout << "Printing stats" << std::endl;
+    sleep(1);
 
     std::ofstream out; 
     unsigned int num_ms = this->stonne_cfg.m_MSNetworkCfg.ms_size;
