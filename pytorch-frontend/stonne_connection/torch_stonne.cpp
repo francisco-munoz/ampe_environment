@@ -566,9 +566,10 @@ torch::Tensor simulated_linear_forward(std::string layer_name, torch::Tensor inp
 	else {
             KN_weight_raw = (float*) weight_changed.data_ptr();
         }
-        simulateDenseGemmForward(layer_name, KN_weight_raw, MK_input_raw, output_raw,1, 1, gemm_M, gemm_K, gemm_N, path_to_tile, stonne_cfg);
 	std::cout << "The value of M is " << gemm_N << std::endl;
-	std::cout << "The value of N is " << gemm_M << std::endl;
+        std::cout << "The value of N is " << gemm_M << std::endl;
+	std::cout << "The value of K is " << gemm_K << std::endl;
+        simulateDenseGemmForward(layer_name, KN_weight_raw, MK_input_raw, output_raw,1, 1, gemm_M, gemm_K, gemm_N, path_to_tile, stonne_cfg);
     }
 
     return output;

@@ -92,6 +92,7 @@ Stonne::Stonne(Config stonne_cfg) {
 
     //STATISTICS
     this->n_cycles = 0;
+    std::cout << "STARTING A NEW STONNE SIMULATION" << std::endl;
 
 }
 
@@ -331,12 +332,16 @@ void Stonne::cycle() {
         this->printEnergy();
     }
     std::cout << "Number of cycles running: " << this->n_cycles << std::endl;
+    /*
     std::cout << "Time mem: " << time_mem/1000000 << std::endl;
     std::cout << "Time lt: " << time_lt/1000000 << std::endl;
     std::cout << "Time as: " << time_as/1000000 << std::endl;
     std::cout << "Time ms: " << time_ms/1000000 << std::endl;
     std::cout << "Time ds: " << time_ds/1000000 << std::endl;
     //std::cout << "Time routing ds: " << this->dsnet->get_time_routing()/1000000000 << std::endl;
+    */
+    std::cout << "THE SIMULATION HAS FINISHED AND STATS FILES HAVE BEEN GENERATED" << std::endl;
+    std::cout << "---------------------------------------------------------------" << std::endl;
 }
 
 //General function to print all the STATS
