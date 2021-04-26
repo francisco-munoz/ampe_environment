@@ -17,6 +17,9 @@ Pasos para la instalación del entorno de AMPE:
 3. Instalar elementos personalizados para las prácticas
    3.1. cd practica2
    3.2. ./compile_practica2.sh install
+4. Instalar STONNE (práctica 4)
+   4.1. cd pytorch-frontend/stonne_connection
+   4.2. python setup.py install
    
 Si la operación ha funcionado correctamente, deberemos de ser capaces de importar las librerías torch y torch_stonne en un interprete de python. Tal que así:
 alumno@lab27:~$ python
